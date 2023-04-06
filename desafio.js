@@ -1,39 +1,3 @@
-/**
- * EXEMPLO DE UTILIZAÇÃO DA 'comprarCarta'
- * 
- * 
-    const carta = comprarCarta(); // Sorteia uma carta. Por exemplo, o rei de ouros
-    
-    console.log(carta.texto) // imprime o texto da carta. Exemplo: "K♦️" (indica "K" de ouros)
-    console.log(carta.valor) // imprime o valor da carta (um número). Exemplo: 10 (dado que "K" vale 10)
- * 
- * 
- * 
- */
-
-
-// console.log(carta.texto) // imprime o texto da carta. Exemplo: "K♦️" (indica "K" de ouros)
-// console.log(carta.valor) // imprime o valor da carta (um número). Exemplo: 10 (dado que "K" vale 10)
-
-// const carta1 = comprarCarta()  // Carta atribuída ao usuário
-// const carta2 = comprarCarta()  // Carta atribuída ao usuário
-// const carta3 = comprarCarta()  // Carta atribuída ao computador
-// const carta4 = comprarCarta()  // Carta atribuída ao computador
-
-// const pontosUsuario = carta1.valor + carta2.valor
-// const pontosPC = carta3.valor + carta4.valor
-
-// console.log(pontosUsuario)
-// console.log(pontosPC)
-
-// if(pergunta === true){
-//   pontosUsuario += carta1.valor
-//   pontosPC += carta3.valor
-
-//   console.log() 
-// } else{
-//   console.log("")   
-// }
 
 const carta = comprarCarta(); // Sorteia uma carta. Por exemplo, o rei de ouros
 
@@ -58,7 +22,6 @@ let nmrUsuario = 0
 for(percorre of arrayUsuarioValor){
    nmrUsuario += percorre
 }
-// console.log(nmrUsuario)
 
 let arrayComputador = [computador[0].texto, computador[1].texto] 
 let arrayComputadorValor = [computador[0].valor, computador[1].valor]
@@ -66,10 +29,6 @@ let nmrComputador = 0
 for(percorre of arrayComputadorValor){
    nmrComputador += percorre
 }
-// console.log(nmrComputador)
-
-
-// console.log(arrayUsuario)
 
 const perguntaRodada = confirm("Você deseja iniciar uma rodada?")
 
@@ -84,7 +43,6 @@ while(condicao === true && nmrUsuario < 21){
    usuario.push(novaCarta)
    nmrUsuario += novaCarta.valor
    arrayUsuario.push(novaCarta.texto)
-   // console.log(nmrUsuario)
    } else {
       condicao = false
       condicaoComputador = true
@@ -103,22 +61,17 @@ while(condicaoComputador){
 }
 
 if (perguntaRodada === true) {
-   console.log(`As cartas do usuário eram ${arrayUsuario}. A pontuação foi ${nmrUsuario}`)
-   console.log(`As cartas do computador eram ${arrayComputador}. A pontuação foi ${nmrComputador}`)
-   if (nmrComputador <= 21 && nmrComputador > nmrUsuario) {
-      console.log("Computador ganhou")
-   } else if (nmrUsuario <= 21 && nmrUsuario > nmrComputador) {
-      console.log("O usuário ganhou")
+   alert(`As cartas do usuário eram ${arrayUsuario}. A pontuação foi ${nmrUsuario}`)
+   alert(`As cartas do computador eram ${arrayComputador}. A pontuação foi ${nmrComputador}`)
+   if ((nmrComputador <= 21 && nmrComputador > nmrUsuario) || nmrUsuario > 21) {
+      alert("Computador ganhou")
+   } else if ((nmrUsuario <= 21 && nmrUsuario > nmrComputador) || nmrComputador > 21) {
+      alert("O usuário ganhou")
    } else if (nmrComputador === nmrUsuario) {
-      console.log("Empate")
-   } else if(nmrComputador > 21){
-      console.log("O usuário ganhou")
-   } else if(nmrUsuario > 21){
-      console.log("O computador ganhou")
-   }
+      alert("Empate")
+   } 
 } else {
-   console.log("Fim do jogo!")
+   alert("Fim do jogo!")
 }
-
 
 
